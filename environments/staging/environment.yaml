@@ -28,3 +28,8 @@ app:
     - name: io_openliberty_sample_system_inMaintenance
       value: "false"
       
+  # observability:
+  #  cloudwatch:   
+  #    arn: arn:aws:logs:region:account-id:destination:destination_name
+  #    logGroup: myLogGroup
+  #    region: us-east-1
