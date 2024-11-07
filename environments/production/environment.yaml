@@ -1,0 +1,35 @@
+#
+# Configuration for staging environment
+#
+version: 1.0
+app:
+  # build id to deploy. if 'version' is commented out, the application is not deployed
+  version: "ab6e6668-8f52-41e4-8fea-3b5d4bec75b1"
+  
+  # number of instances
+  instances:
+    # min number of instances. can be 0 for scale to 0. default to 1.
+    min: 1
+    
+    # max number of instances. defaults to 1 if min == 0, otherwise defaults to min
+    max: 1
+    
+  resources:
+    # max cpu. memory limit is based on cpu value: 1:3 memory ratio, e.g. 1 cpu == 3 gb
+    cpu: 1
+
+  # List of environment variables that are set for the application
+  env:
+    - name: JVM_ARGS 
+      value: "-Xms=1024m"
+
+  # List of variables that can be referenced in the server.xml
+  variables:
+    - name: io_openliberty_sample_system_inMaintenance
+      value: "false"
+      
+  # observability:
+  #  cloudwatch:   
+  #    arn: arn:aws:logs:region:account-id:destination:destination_name
+  #    logGroup: myLogGroup
+  #    region: us-east-1
